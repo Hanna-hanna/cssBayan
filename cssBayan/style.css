@@ -16,65 +16,52 @@
     height: auto;
 }
 
-.container_item {
+.container .container_item {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.content_head {
+.container .container_item .content_head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em 0;
 }
 
-.content_title {
+.container .container_item .content_head .content_title {
     font-size: 2em;
     font-weight: 700;
 }
 
-.content_icon i {
+.container .container_item .content_head .content_icon i {
     font-size: 2em;
     color: Tomato;
 }
 
-.content_body {
+.container .container_item .content_body {
     display:flex;
     justify-content: center;
 }
 
-.content_body img {
+.container .container_item .content_body img {
     width: 50%;
 }
 
-.container_item {
-    transition: all 1s ease;
-}
-
-.container_item .content_body {
-    display: none;
-}
-
-
+/* 
 .container:hover .container_item:first-child .content_icon .icon_close {
     display: block;
 }
 
 .container:hover .container_item:not(:first-child) .content_icon .icon_show {
     display: block;
-} 
+}   */
 
-
+/* 
 .container_item .content_head .content_icon .icon_show,
 .container_item .content_head .content_icon .icon_close {
     display: none;
-}
-
-/* .container_item:first-child .content_body {
-    display: block;
-} */
-
+} 
 
 .container_item:first-child:hover .content_body,
 .container_item:nth-child(2):hover .content_body,
@@ -82,26 +69,91 @@
 .container_item:nth-child(4):hover .content_body,
 .container_item:last-child:hover .content_body {
     display: block;
-}
+} */
 
-.container_item:first-child:hover .content_head .content_icon .icon_close,
+/* .container_item:first-child:hover .content_head .content_icon .icon_close,
 .container_item:nth-child(2):hover .content_head .content_icon .icon_close,
 .container_item:nth-child(3):hover .content_head .content_icon .icon_close,
 .container_item:nth-child(4):hover .content_head .content_icon .icon_close,
 .container_item:last-child:hover .content_head .content_icon .icon_close {
     display: block;
-}
+}  */
 
-.container_item:first-child:hover .content_head .content_icon .icon_show,
+/* .container_item:first-child:hover .content_head .content_icon .icon_show,
 .container_item:nth-child(2):hover .content_head .content_icon .icon_show,
 .container_item:nth-child(3):hover .content_head .content_icon .icon_show,
 .container_item:nth-child(4):hover .content_head .content_icon .icon_show,
 .container_item:last-child:hover .content_head .content_icon .icon_show {
     display: none;
+} */
+
+
+.container input:checked + label,
+.container input:checked + label:hover {
+    background: #f1f2f3;
+    color: #666;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+    box-shadow: 0 0 0 1px rgba(155,155,155,0.3),0 2px 2px rgba(0,0,0,0.1);
+    line-height: 21px;
+    font-size: 13px;
 }
 
-.container_item.expanded .content_body {
+.container input {
+    display: none;
+}
+
+.container .content_body {
+    background: rgba(255,255,255,0.5);
+    margin-top: -1px;
+    overflow: hidden;
+    height: 0;
+    position: relative;
+    z-index: 10;
+    -webkit-transition: height 0.3s ease-in-out,box-shadow 0.6s linear;
+    -moz-transition: height 0.3s ease-in-out,box-shadow 0.6s linear;
+    -o-transition: height 0.3s ease-in-out,box-shadow 0.6s linear;
+    -ms-transition: height 0.3s ease-in-out,box-shadow 0.6s linear;
+    transition: height 0.3s ease-in-out,box-shadow 0.6s linear;
+}
+
+
+.container input:checked + label .content_body {
+    -webkit-transition: height 0.5s ease-in-out,box-shadow 0.1s linear;
+    -moz-transition: height 0.5s ease-in-out,box-shadow 0.1s linear;
+    -o-transition: height 0.5s ease-in-out,box-shadow 0.1s linear;
+    -ms-transition: height 0.5s ease-in-out,box-shadow 0.1s linear;
+    transition: height 0.5s ease-in-out,box-shadow 0.1s linear;
+    box-shadow: 0 0 0 1px rgba(155,155,155,0.3);
+}
+
+.container input:checked + label .icon_show {
+    display: none;
+}
+
+.container input:checked + label .icon_close {
     display: block;
 }
 
+.container input:not(:checked) + label .icon_show {
+    display: block;
+}
 
+.container input:not(:checked)  + label .icon_close {
+    display: none;
+}
+
+.container input:checked + label .content_body {
+    height: auto;
+}
+
+.container .container_item:hover .content_body {
+    height: auto;
+}
+
+.container .container_item:hover .icon_close {
+    display: block;
+}
+
+.container .container_item:hover .icon_show {
+    display: none;
+}
